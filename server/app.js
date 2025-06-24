@@ -26,6 +26,15 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
   console.log('user Connected:', socket.id)
+
+  // socket.emit('welcome', `Welcome to our Server at 3000 dear ${socket.id} ✅`)
+  // socket.broadcast.emit('welcome', `${socket.id} has joined the Server 🤘`)
+
+  // io.emit('welcome', 'io.emit')
+
+  socket.on('message', (data) => {
+    console.log(data)
+  })
 })
 
 server.listen(port, () => {
