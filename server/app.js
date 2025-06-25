@@ -38,6 +38,10 @@ io.on('connection', (socket) => {
     // socket.broadcast.emit('received-message', data)
     io.to(data.room).emit('received-message', data)
   })
+
+  socket.on('join-room', (room) => {
+    socket.join(room)
+  })
 })
 
 server.listen(port, () => {
